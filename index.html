@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Safe Water Southwest — Arizona Water Treatment Experts</title>
+  <meta name="description" content="Find trusted water softener, reverse osmosis, and filtration specialists across Arizona. Get matched with a local expert today.">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue: #1a56a0;
+      --blue-dark: #133d78;
+      --blue-light: #e8f0fb;
+      --accent: #2eaadc;
+      --text: #1a1a2e;
+      --muted: #5a6070;
+      --border: #d0d8e8;
+      --radius: 10px;
+      --shadow: 0 2px 12px rgba(26,86,160,0.10);
+      --gold: #c8920a;
+      --gold-light: #fdf6e3;
+    }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; color: var(--text); background: #f4f7fc; }
+
+    /* NAV */
+    nav { background: var(--blue); padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .nav-logo { color: #fff; font-size: 1.15rem; font-weight: 700; letter-spacing: .3px; text-decoration: none; }
+    .nav-cta { background: var(--accent); color: #fff; padding: 8px 18px; border-radius: 6px; font-size: .9rem; font-weight: 600; text-decoration: none; transition: opacity .2s; }
+    .nav-cta:hover { opacity: .88; }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 100%);
+      color: #fff;
+      padding: 64px 5% 56px;
+      text-align: center;
+      overflow: hidden;
+    }
+    /* OPTION A: hero-img-overlay — uncomment to enable once image path is set */
+    /*
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('assets/hero-water-glass.jpg') center/cover no-repeat;
+      opacity: 0.18;
+      z-index: 0;
+    }
+    */
+    .hero > * { position: relative; z-index: 1; }
+    .hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; line-height: 1.2; margin-bottom: 16px; }
+    .hero p { font-size: 1.1rem; opacity: .9; max-width: 560px; margin: 0 auto 36px; }
+
+    /* LEAD FORM */
+    .form-wrap { background: #fff; border-radius: var(--radius); box-shadow: 0 4px 24px rgba(0,0,0,.18); max-width: 560px; margin: 0 auto; padding: 32px 28px; }
+    .form-wrap h2 { font-size: 1.25rem; font-weight: 700; margin-bottom: 20px; color: var(--blue); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .form-group { margin-bottom: 14px; }
+    .form-group label { display: block; font-size: .82rem; font-weight: 600; color: var(--muted); margin-bottom: 5px; text-transform: uppercase; letter-spacing: .4px; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; padding: 10px 13px; border: 1.5px solid var(--border);
+      border-radius: 7px; font-size: .97rem; color: var(--text);
+      transition: border-color .2s; background: #fafbfd;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      outline: none; border-color: var(--accent); background: #fff;
+    }
+    .form-group textarea { resize: vertical; min-height: 80px; }
+    .form-submit { width: 100%; padding: 13px; background: var(--blue); color: #fff; border: none; border-radius: 8px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: background .2s; margin-top: 6px; }
+    .form-submit:hover { background: var(--blue-dark); }
+    .form-submit:disabled { background: #9ab0cc; cursor: not-allowed; }
+    .form-msg { margin-top: 12px; font-size: .93rem; text-align: center; min-height: 20px; }
+    .form-msg.success { color: #1a8a4a; }
+    .form-msg.error { color: #c0392b; }
+    .hero-offer { display: inline-block; background: #fff; color: var(--blue); font-size: 1.1rem; font-weight: 800; padding: 10px 22px; border-radius: 30px; margin-bottom: 22px; box-shadow: 0 2px 12px rgba(0,0,0,.15); letter-spacing: .1px; }
+
+    /* TRUST BAR */
+    .trust-bar { background: var(--blue-light); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 18px 5%; display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+    .trust-item { display: flex; align-items: center; gap: 8px; font-size: .92rem; font-weight: 600; color: var(--blue); }
+
+    /* TESTIMONIAL — ABOVE FORM SLOT */
+    .testimonial-hero-slot {
+      background: #fff;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 36px 5%;
+      text-align: center;
+    }
+    .testimonial-hero-slot .slot-label {
+      font-size: .75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+    .testimonial-hero-slot .video-placeholder {
+      max-width: 640px;
+      margin: 0 auto;
+      background: #e8f0fb;
+      border: 2px dashed var(--border);
+      border-radius: var(--radius);
+      padding: 48px 24px;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+    .testimonial-hero-slot .video-placeholder strong { display: block; margin-bottom: 8px; font-size: 1.05rem; color: var(--blue); }
+
+    /* ABOUT SECTION */
+    .about-section {
+      max-width: 780px;
+      margin: 52px auto;
+      padding: 0 5%;
+    }
+    .about-section h2 { font-size: 1.45rem; font-weight: 800; margin-bottom: 16px; color: var(--blue); }
+    .about-section p { font-size: 1rem; line-height: 1.75; color: var(--text); margin-bottom: 14px; }
+    .about-section .vetting-list { margin: 18px 0 0 0; padding: 0; list-style: none; }
+    .about-section .vetting-list li {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 10px 0; border-top: 1px solid var(--border); font-size: .97rem;
+    }
+    .about-section .vetting-list li:last-child { border-bottom: 1px solid var(--border); }
+    .vetting-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+
+    /* FEATURED VENDOR SLOT */
+    .featured-section {
+      max-width: 1200px;
+      margin: 0 auto 0;
+      padding: 0 5%;
+    }
+    .featured-section h2 { font-size: 1.35rem; font-weight: 800; margin-bottom: 6px; }
+    .featured-section .subtitle { color: var(--muted); font-size: .95rem; margin-bottom: 20px; }
+    .featured-card {
+      background: linear-gradient(135deg, #fff 80%, var(--gold-light) 100%);
+      border: 2px solid var(--gold);
+      border-radius: 14px;
+      padding: 28px 24px;
+      position: relative;
+      box-shadow: 0 4px 20px rgba(200,146,10,.13);
+      margin-bottom: 32px;
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+    .featured-badge {
+      position: absolute;
+      top: -13px; left: 20px;
+      background: var(--gold);
+      color: #fff;
+      font-size: .72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 4px 14px;
+      border-radius: 20px;
+    }
+    .featured-card .fc-name { font-size: 1.2rem; font-weight: 800; margin-bottom: 6px; }
+    .featured-card .fc-name a { color: var(--text); text-decoration: none; }
+    .featured-card .fc-name a:hover { color: var(--blue); }
+    .featured-card .fc-tag { display: inline-block; font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; color: var(--blue); background: var(--blue-light); border-radius: 4px; padding: 3px 9px; margin-bottom: 10px; }
+    .featured-card .fc-specialty { font-size: .9rem; color: var(--muted); margin-bottom: 10px; font-style: italic; }
+    .featured-card .fc-meta { font-size: .85rem; color: var(--muted); margin-bottom: 6px; }
+    .featured-card .fc-phone { font-size: 1rem; font-weight: 700; color: var(--blue); text-decoration: none; }
+    .featured-slot-placeholder {
+      border: 2px dashed var(--gold);
+      border-radius: 14px;
+      background: var(--gold-light);
+      padding: 32px 24px;
+      text-align: center;
+      color: var(--muted);
+      margin-bottom: 32px;
+    }
+    .featured-slot-placeholder strong { display: block; font-size: 1.05rem; color: var(--gold); margin-bottom: 8px; }
+
+    /* VENDORS */
+    .vendors-section { max-width: 1200px; margin: 48px auto; padding: 0 5%; }
+    .vendors-section h2 { font-size: 1.55rem; font-weight: 800; margin-bottom: 8px; }
+    .vendors-section .subtitle { color: var(--muted); margin-bottom: 24px; font-size: .97rem; }
+
+    /* FILTER BAR */
+    .filter-bar { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; align-items: center; }
+    .filter-bar label { font-size: .85rem; font-weight: 600; color: var(--muted); }
+    .filter-bar select { padding: 8px 12px; border: 1.5px solid var(--border); border-radius: 7px; font-size: .9rem; color: var(--text); background: #fff; cursor: pointer; }
+    .filter-bar select:focus { outline: none; border-color: var(--accent); }
+
+    /* VENDOR GRID */
+    .vendor-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+    .vendor-card { background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); padding: 22px 20px; border: 1.5px solid var(--border); transition: box-shadow .2s, transform .15s; }
+    .vendor-card:hover { box-shadow: 0 6px 24px rgba(26,86,160,.16); transform: translateY(-2px); }
+    .vendor-cat-tag { display: inline-block; font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; color: var(--blue); background: var(--blue-light); border-radius: 4px; padding: 3px 9px; margin-bottom: 10px; }
+    .vendor-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; line-height: 1.3; }
+    .vendor-card h3 a { color: var(--text); text-decoration: none; }
+    .vendor-card h3 a:hover { color: var(--blue); text-decoration: underline; }
+    .vendor-area { font-size: .83rem; color: var(--muted); margin-bottom: 4px; line-height: 1.4; }
+    .vendor-specialty { font-size: .82rem; color: var(--muted); font-style: italic; margin-bottom: 6px; }
+    .vendor-credential { font-size: .78rem; color: #2a7a3a; font-weight: 600; margin-bottom: 6px; }
+    .vendor-phone { display: inline-block; font-size: .9rem; font-weight: 600; color: var(--blue); text-decoration: none; margin-top: 4px; }
+    .vendor-phone:hover { text-decoration: underline; }
+    .vendor-incomplete { font-size: .8rem; color: var(--muted); font-style: italic; margin-top: 6px; }
+    .no-results { color: var(--muted); font-size: .97rem; padding: 24px 0; display: none; }
+
+    /* TESTIMONIALS SECTION */
+    .testimonials-section {
+      background: var(--blue-light);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 52px 5%;
+      margin-top: 8px;
+    }
+    .testimonials-section h2 { font-size: 1.4rem; font-weight: 800; text-align: center; margin-bottom: 8px; color: var(--blue); }
+    .testimonials-section .subtitle { text-align: center; color: var(--muted); font-size: .95rem; margin-bottom: 32px; }
+    .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
+    .testimonial-placeholder {
+      background: #fff;
+      border: 2px dashed var(--border);
+      border-radius: var(--radius);
+      padding: 32px 20px;
+      text-align: center;
+      color: var(--muted);
+    }
+    .testimonial-placeholder strong { display: block; font-size: 1rem; color: var(--blue); margin-bottom: 8px; }
+    .testimonial-placeholder .embed-note { font-size: .78rem; color: #aaa; margin-top: 10px; }
+
+    /* FOOTER */
+    footer { background: var(--blue-dark); color: rgba(255,255,255,.7); text-align: center; padding: 28px 5%; font-size: .85rem; margin-top: 60px; }
+    footer a { color: rgba(255,255,255,.85); }
+
+    @media (max-width: 540px) {
+      .form-row { grid-template-columns: 1fr; }
+      .trust-bar { gap: 18px; }
+      .featured-card { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="/">💧 Safe Water Southwest</a>
+  <a class="nav-cta" href="#get-matched">Get Matched Free</a>
+</nav>
+
+<section class="hero" id="get-matched">
+  <!--
+    HERO IMAGE — OPTION A: Clean water / glass close-up
+    Suggested source: Unsplash (free commercial use)
+    URL: https://unsplash.com/photos/water-pouring-into-glass-PhYq704ffdA
+    Prompt for AI generation: "crystal clear water pouring into a glass, blue tones, clean minimal, high resolution"
+    To enable: set .hero::before CSS above, place image at assets/hero-water-glass.jpg
+
+    HERO IMAGE — OPTION B: Arizona home exterior with water system
+    Suggested source: Unsplash search "arizona home" or generate:
+    Prompt: "arizona ranch-style home exterior, sunny, desert landscape, clean and modern, no text"
+    To enable: swap URL in .hero::before to assets/hero-arizona-home.jpg
+
+    HERO IMAGE — OPTION C: Before/after hard water stain comparison
+    Suggested source: capture real before/after from vendor, or:
+    Prompt: "split image, left side hard water stain on faucet, right side clean polished chrome, professional product photography"
+    Note: This option works better as a section image below the hero than as a full bleed background.
+    James decides which option to pursue before image is placed.
+  -->
+
+  <!--
+    HEADLINE COPY OPTIONS — James picks one:
+
+    OPTION 1 (current — baseline):
+    "Find a Trusted Water Treatment Expert in Arizona"
+    Subhead: "Hard water, contaminants, well water issues — get matched with a vetted local specialist. Free, no obligation."
+
+    OPTION 2 (Arizona conditions lead):
+    "Arizona Water Is Hard. Your Home Deserves Better."
+    Subhead: "Phoenix area water averages 250–300 ppm hardness. We match you with vetted local specialists who know Arizona's water — free, no obligation."
+
+    OPTION 3 (well water / outlying areas angle):
+    "Hard Water in the Valley. Well Water in the Outskirts. We Know Arizona's Water Problems."
+    Subhead: "From Maricopa to Prescott, get matched with a vetted local specialist who understands your water. Free, no obligation."
+
+    OPTION 4 (trust-forward):
+    "Arizona Homeowners Deserve a Straight Answer on Their Water."
+    Subhead: "We vet every specialist in this directory. No sponsored listings. No guesswork. Get matched free — and earn a $25 gift card when you complete your water test."
+
+    Active headline below is OPTION 2. James swaps in preferred option before deploy.
+  -->
+  <div class="hero-offer">🎁 Free water test — earn a $25 gift card when complete.</div>
+  <h1>Arizona Water Is Hard.<br>Your Home Deserves Better.</h1>
+  <p>Phoenix area water averages 250–300 ppm hardness. We match you with vetted local specialists who know Arizona's water — free, no obligation.</p>
+
+  <div class="form-wrap">
+    <h2>Get Your Free Consultation</h2>
+    <form id="leadForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" name="fname" placeholder="Jane" required>
+        </div>
+        <div class="form-group">
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" name="lname" placeholder="Smith" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="jane@example.com" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" placeholder="(480) 555-0100">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="zip">ZIP Code</label>
+          <input type="text" id="zip" name="zip" placeholder="85001" maxlength="5" required>
+        </div>
+        <div class="form-group">
+          <label for="issue">Water Issue</label>
+          <select id="issue" name="issue" required>
+            <option value="">Select one…</option>
+            <option>Hard water / scale buildup</option>
+            <option>Bad taste or odor</option>
+            <option>Well water treatment</option>
+            <option>Whole-house filtration</option>
+            <option>Reverse osmosis / drinking water</option>
+            <option>Not sure — need assessment</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="message">Anything else? (optional)</label>
+        <textarea id="message" name="message" placeholder="Tell us more about your water situation…"></textarea>
+      </div>
+      <button type="submit" class="form-submit" id="submitBtn">Get My Free Match →</button>
+      <p class="form-msg" id="formMsg"></p>
+    </form>
+  </div>
+</section>
+
+<div class="trust-bar">
+  <span class="trust-item">✅ 25 Vetted Arizona Vendors</span>
+  <span class="trust-item">🔒 No Spam — Ever</span>
+  <span class="trust-item">⚡ Response Within 24 Hours</span>
+  <span class="trust-item">💰 Free, No Obligation</span>
+</div>
+
+<!-- TESTIMONIAL SLOT 1 — above directory, single strong testimonial -->
+<div class="testimonial-hero-slot">
+  <div class="slot-label">What Arizona Homeowners Are Saying</div>
+  <div class="video-placeholder">
+    <strong>📹 Testimonial Video — Embed Point</strong>
+    <!-- TODO: James provides video file. Embed here as <video> or <iframe>. -->
+    <!-- Suggested format: autoplay=false, controls=true, max-width 640px -->
+    Customer testimonial video will appear here. File to be provided by James.
+  </div>
+</div>
+
+<!-- ABOUT SECTION -->
+<section class="about-section">
+  <!--
+    ABOUT COPY OPTIONS — James picks one (or blends):
+
+    OPTION A (industry-professional framing):
+    "Safe Water Southwest was built by Arizona water industry professionals who got tired of watching homeowners get matched with the wrong vendor. Every specialist in this directory is vetted based on licensing, service history, and local presence — not who paid the most for placement."
+
+    OPTION B (consumer-advocacy framing):
+    "Safe Water Southwest exists because the Arizona water treatment market is full of noise. Franchise systems, national call centers, and unlicensed contractors make it hard to find someone who actually knows your local water. This directory curates specialists with verified Arizona licenses, documented service areas, and a track record in your community."
+
+    OPTION C (neutral / institutional):
+    "Safe Water Southwest is an independent directory of Arizona water treatment specialists, assembled and maintained by water industry professionals. Every listing is reviewed against a standard set of criteria before inclusion. No vendor pays for placement or ranking."
+
+    Active copy below is OPTION B. James swaps preferred before deploy.
+  -->
+  <h2>Why This Directory Exists</h2>
+  <p>Safe Water Southwest exists because the Arizona water treatment market is full of noise. Franchise systems, national call centers, and unlicensed contractors make it hard to find someone who actually knows your local water.</p>
+  <p>This directory curates specialists with verified Arizona licenses, documented service areas, and a track record in your community. Every listing is reviewed before inclusion. No vendor pays for placement or ranking.</p>
+
+  <h3 style="font-size:1.05rem;font-weight:700;margin:24px 0 12px;color:var(--blue);">What "Vetted" Means Here</h3>
+  <!--
+    VETTING CRITERIA OPTIONS — James confirms or adjusts before deploy.
+    These are honest and defensible based on what can actually be checked:
+
+    Criteria A: Active Arizona ROC license (Registrar of Contractors — publicly searchable)
+    Criteria B: Documented service area within Arizona (confirmed service area page or equivalent)
+    Criteria C: Verifiable business address (not a P.O. box or virtual office)
+    Criteria D: At least one independent review source (Google, Yelp, or BBB listing exists)
+
+    Optional / aspirational (flag for James — harder to verify at scale):
+    - WQA (Water Quality Association) membership
+    - Minimum years in business (3+ years suggested)
+    - No unresolved BBB complaints in past 12 months
+
+    Current criteria displayed below = A, B, C, D (all defensible now).
+  -->
+  <ul class="vetting-list">
+    <li><span class="vetting-icon">📋</span><span><strong>Active Arizona ROC License</strong> — Arizona Registrar of Contractors license confirmed and in good standing. Publicly searchable at roc.az.gov.</span></li>
+    <li><span class="vetting-icon">📍</span><span><strong>Documented Arizona Service Area</strong> — Vendor has confirmed specific Arizona cities or regions they serve. National call centers without local presence are excluded.</span></li>
+    <li><span class="vetting-icon">🏢</span><span><strong>Verifiable Business Address</strong> — Physical Arizona business location confirmed. P.O. boxes and virtual offices do not qualify.</span></li>
+    <li><span class="vetting-icon">⭐</span><span><strong>Independent Review Presence</strong> — Vendor has an established presence on at least one independent review platform (Google, Yelp, or BBB) with a documented service history.</span></li>
+  </ul>
+</section>
+
+<!-- FEATURED / PREFERRED VENDOR SLOT -->
+<section class="featured-section">
+  <h2>Featured Partner</h2>
+  <p class="subtitle">Our featured listing is reserved for a vendor that meets our highest vetting standard. No vendor is currently designated.</p>
+  <!--
+    PREFERRED VENDOR VISUAL TREATMENT OPTIONS — James picks approach:
+
+    APPROACH 1 (badge + gold border — current): Gold border card with "Preferred Partner" badge.
+      Pros: Clear visual hierarchy, familiar to users from other directories.
+      Cons: Looks "paid" if not explained.
+
+    APPROACH 2 (expanded full-width card above grid):
+      Featured vendor gets a 100% width card with logo slot, expanded description, and a second CTA button.
+      Build: Add class .featured-full to .vendor-grid container, first card rendered at full width.
+
+    APPROACH 3 (separate "Editor's Pick" section with editorial framing):
+      Short paragraph explaining why this vendor was selected this month. More editorial, less directory-ad feel.
+      Best if About section has established trust before users reach it.
+
+    Current: Approach 1 placeholder shown below. Vendor slot is empty — no vendor designated.
+    Data attribute data-tier="preferred" in the JS array controls rendering.
+  -->
+  <div class="featured-slot-placeholder">
+    <strong>⭐ Featured Partner Slot</strong>
+    No vendor is currently designated as a featured partner. This slot will display when James assigns preferred-tier status to a vendor in the data array.
+    <!-- TODO: James designates preferred vendor by setting tier: "preferred" in VENDORS array below -->
+  </div>
+</section>
+
+<section class="vendors-section">
+  <h2>Arizona Water Treatment Specialists</h2>
+  <p class="subtitle">Browse vendors by service type or city — or submit the form above to get matched automatically.</p>
+
+  <div class="filter-bar">
+    <label for="catFilter">Service type:</label>
+    <select id="catFilter">
+      <option value="">All types</option>
+      <option value="RO filtration">Reverse Osmosis</option>
+      <option value="salt-based softener">Water Softener</option>
+      <option value="salt-free conditioner">Salt-Free Conditioner</option>
+      <option value="well water treatment">Well Water Treatment</option>
+    </select>
+    <label for="cityFilter">City:</label>
+    <select id="cityFilter">
+      <option value="">All cities</option>
+      <option value="Avondale">Avondale</option>
+      <option value="Buckeye">Buckeye</option>
+      <option value="Chandler">Chandler</option>
+      <option value="Flagstaff">Flagstaff</option>
+      <option value="Gilbert">Gilbert</option>
+      <option value="Glendale">Glendale</option>
+      <option value="Goodyear">Goodyear</option>
+      <option value="Maricopa">Maricopa</option>
+      <option value="Mesa">Mesa</option>
+      <option value="Peoria">Peoria</option>
+      <option value="Phoenix">Phoenix</option>
+      <option value="Prescott">Prescott</option>
+      <option value="Queen Creek">Queen Creek</option>
+      <option value="Scottsdale">Scottsdale</option>
+      <option value="Sedona">Sedona</option>
+      <option value="Surprise">Surprise</option>
+      <option value="Tempe">Tempe</option>
+      <option value="Tucson">Tucson</option>
+    </select>
+  </div>
+
+  <div class="vendor-grid" id="vendorGrid"></div>
+  <p class="no-results" id="noResults">No vendors found for that combination. Try clearing one filter.</p>
+</section>
+
+<!-- TESTIMONIALS SECTION — further down the page -->
+<section class="testimonials-section">
+  <h2>Arizona Homeowners Share Their Experience</h2>
+  <p class="subtitle">Real feedback from homeowners matched through Safe Water Southwest.</p>
+  <div class="testimonial-grid">
+    <div class="testimonial-placeholder">
+      <strong>📹 Testimonial Video 1</strong>
+      <!-- TODO: James provides video file 1. Embed here. -->
+      Video testimonial embed point. File to be provided by James.
+      <div class="embed-note">Suggested: &lt;video controls width="100%"&gt;&lt;source src="testimonials/video-1.mp4"&gt;&lt;/video&gt;</div>
+    </div>
+    <div class="testimonial-placeholder">
+      <strong>📹 Testimonial Video 2</strong>
+      <!-- TODO: James provides video file 2. Embed here. -->
+      Video testimonial embed point. File to be provided by James.
+      <div class="embed-note">Suggested: &lt;video controls width="100%"&gt;&lt;source src="testimonials/video-2.mp4"&gt;&lt;/video&gt;</div>
+    </div>
+    <div class="testimonial-placeholder">
+      <strong>📹 Testimonial Video 3</strong>
+      <!-- TODO: Additional slot — optional. Remove if not needed. -->
+      Optional third embed point.
+      <div class="embed-note">Remove this placeholder if only two testimonials are available.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 Safe Water Southwest. All rights reserved. &nbsp;|&nbsp; <a href="mailto:hello@safewatersouthwest.com">hello@safewatersouthwest.com</a></p>
+  <p style="margin-top:6px;font-size:.8rem;opacity:.7;">We connect homeowners with local water treatment professionals. We do not endorse or guarantee any vendor.</p>
+</footer>
+
+<script>
+  // ── VENDOR DATA ARRAY ─────────────────────────────────────────────────────
+  // Schema fields:
+  //   name, url, phone, categories (array), cities (array), tier ("standard"|"preferred"),
+  //   specialty (string|null), credential (string|null), yearsAZ (number|null),
+  //   incomplete (bool) — renders "contact info pending" if true
+  //   TODO (string|null) — internal flag, not rendered
+  //
+  // REMOVED from prior version (review/listicle sites, not vendors):
+  //   - Rosenberry Rooms (https://www.rosenberryrooms.com/best-water-softener-system-for-arizona/)
+  //   - DIY Happy (https://www.diyhappy.com/best-water-softeners-for-arizona/)
+  //
+  // FLAGGED incomplete (real vendors, data pending):
+  //   - SpectraPure (no AZ address, no phone — wholesale/mail-order likely)
+  //   - Protec Water AZ (no service area on card)
+  //
+  // ADDED:
+  //   - Hyperion Elite Systems (scraped 2026-04-22, TODO: James review)
+
+  const VENDORS = [
+    {
+      name: "Crystal Tech Water",
+      url: "https://crystaltechwater.com/",
+      phone: "602.326.6142",
+      categories: ["RO filtration"],
+      cities: ["Avondale","Buckeye","Chandler","Gilbert","Glendale","Goodyear","Maricopa","Mesa","Peoria","Phoenix","Queen Creek","Scottsdale","Tempe","Tucson"],
+      tier: "standard",
+      specialty: null,
+      credential: null,
+      yearsAZ: null,
+      incomplete: false,
+      TODO: null
+    },
+    {
+      name: "Culligan of Tucson",
+      url: "https://www.culligantucson.com/",
+      phone: "520-719-1632",
+      categories: ["well water treatment"],
+      cities: ["Tucson"],
+      tier: "standard",
+      specialty: null,
+      credential: null,
+      yearsAZ: null,
+      incomplete: false,
+      TODO: null
+    },
+    {
+      name: "Desert Water Services",
+      url: "https://desertwaterservices.com/",
+      phone: "(520) 327-8426",
+      categories: ["salt-based softener"],
+      cities: ["Tucson"],
+      tier: "standard",
+      specialty: null,
+      credential: null,
+      yearsAZ: null,
+      incomplete: false,
+      TODO: null
+    },
+    {
+      name: "Pure Desert Water",
+      url: "https://www.puredesertwater.com/",
+      phone: "520-448-8600",
+      categories: ["RO filtration"],
+      cities: ["Tucson"],
+      tier: "standard",
+      specialty: null,
+      credential: null,
+      yearsAZ: null,
+      incomplete: false,
+      TODO: null
+    },
+    {
+      name: "Rite Way — Reverse Osmosis Systems",
+      url: "https://ritewayac.com/phoenix/water-filtration-treatment/reverse-osmosis/",
+      phone: "(602) 661-1064",
+      categories: ["RO filtration"],
+      cities: ["Chandler","Gilbert","Glendale","Mesa","Phoenix","Scottsdale","Tempe","Tucson"],
+      tier: "standard",
+      specialty: null,
+      credential: null,
+      yearsAZ: null,
+      incomplete: false,
+      TODO: null
+    },
+    {
+      name: "Arizona Pure Water",
+      url: "https://www.azpure.com/",
+      phone: "(480) 687-1030",
+      categories: ["RO filtration"],
+      cities: ["Phoenix"],
+      tier: "standard",
+      specialty: null,
+      credential: null,
+      yearsAZ: null,
+      incomplete: false,
+      TODO: null
+    },
+    {
+      name: "Boyett's Family Water Treatment",
+      url: "https://azh2o.com/",
+      phone: "480-969-7251",
+      categories: ["RO filtration"],
+      cities: ["Mesa","Phoenix"],
+      tier: "standard",
+      specialty: null,
+      credential: null,
+      yearsAZ: null,
+      incomplete: false,
+      TODO: null
+    },
+    {
+      name: "Integrity Water Solutions",
+      url: "https://integritywaterarizona.com/",
+      phone: "480.699.9078",
+      categories: ["RO filtration"],
+      cities: ["Chandler","Goodyear","Mesa","Peoria","Phoenix","Scottsdale","Sedona","Tempe","Tucson"],
+      tier: "standard",
+      specialty: null,
+      credential: null,
+      yearsAZ: null,
+      incomplete: false,
+      TODO: null
+    },
+    {
+      name: "AZ Water Solutions",
+      url: "https://azwatersolutions.com/",
+      phone: "480-375-1512",
+      categories: ["RO filtration"],
+      cities: ["Chandler","Gilbert","Glendale","Mesa","Peoria","Phoenix","Queen Creek","Scottsdale","Tempe"],
+      tier: "standard",
+      specialty: null,
+      credential: null,
+      yearsAZ: null,
+      incomplete: false,
+      TODO: null
+    },
+    {
+      name: "State48Water",
+      url: "https://www.state48water.com/",
+      phone: "(602) 730-0262",
+      categories: ["RO filtration"],
+      cities: ["Avondale","Buckeye","Chandler","Gilbert","Goodyear","Mesa","Peoria","Phoenix","Queen Creek","Scottsdale"],
+      tier: "standard",
+      specialty: null,
+      credential: null,
+      yearsAZ: null,
+      incomplete: false,
+      TODO: null
+    },
+    {
+      name: "Water Bros",
+      url: "https://mywaterbros.com/",
+      phone: "(602) 869-9876",
+      categories: ["RO filtration"],
+      cities: ["Avondale","Chandler","Gilbert","Glendale","Goodyear","Mesa","Peoria","Phoenix","Queen Creek","Scottsdale","Tempe"],
+      tier: "standard",
+      specialty: null,
+      credential: null,
+      yearsAZ: null,
+      incomplete: false,
+      TODO: null
+    },
+    {
+      name: "Tucson Water Pros",
+      url: "https://tucsonwaterpros.com/",
+      phone: "520-395-1358",
+      categories: ["salt-based softener"],
+      cities: ["Tucson"],
+      tier: "standard",
+      specialty: null,
+      credential: null,
+      yearsAZ: null,
+      incomplete: false,
+      TODO: null
+    },
+    {
+      name: "EcoWater Tucson",
+      url: "https://www.ecowater.com/dealer/tucson-az/",
+      phone: "520-253-6655",
+      categories: ["salt-based softener"],
+      cities: ["Tucson"],
+      tier: "standard",
+      specialty: null,
+      credential: null,
+      yearsAZ: null,
+      incomplete: false,
+      TODO: null
+    },
+    {
+      name: "SpectraPure",
+      url: "https://spectrapure.com/collections/water-systems",
+      phone: null,
+      categories: ["RO filtration"],
+      cities: [],
+      tier: "standard",
+      specialty: null,
+      credential: null,
+      yearsAZ: null,
+      incomplete: true,
+      TODO: "No phone or AZ service area on record. Likely mail-order/wholesale. James to confirm whether to keep or remove."
+    },
+    {
+      name: "American Home Water — Reverse Osmosis",
+      url: "https://americanhomewater.com/reverse-osmosis-systems/",
+      phone: "602-993-0083",
+      categories: ["RO filtration"],
+      cities: ["Buckeye","Chandler","Gilbert","Glendale","Goodyear","Mesa","Peoria","Phoenix","Scottsdale","Tempe"],
+      tier: "standard",
+      specialty: null,
+      credential: null,
+      yearsAZ: null,
+      incomplete: false,
+      TODO: null
+    },
+    {
+      name: "Protec Water AZ",
+      url: "https://protecwateraz.com/reverse-osmosis",
+      phone: "602-390-7444",
+      categories: ["RO filtration"],
+      cities: [],
+      tier: "standard",
+      specialty: null,
+      credential: null,
+      yearsAZ: null,
+      incomplete: true,
+      TODO: "No service area confirmed. James to fill cities served."
+    },
+    {
+      name: "Second Opinion Plumbing — Reverse Osmosis",
+      url: "https://secondopinionplumbingaz.com/reverse-osmosis-systems/",
+      phone: "480-365-9555",
+      categories: ["RO filtration"],
+      cities: ["Chandler","Gilbert","Maricopa","Mesa","Phoenix","Queen Creek","Scottsdale","Surprise","Tempe"],
+      tier: "standard",
+      specialty: null,
+      credential: null,
+      yearsAZ: null,
+      incomplete: false,
+      TODO: null
+    },
+    {
+      name: "HQ Plumbing & Air — Reverse Osmosis",
+      url: "https://hqplumbingandair.com/reverse-osmosis-installation-phoenix/",
+      phone: "602-675-1555",
+      categories: ["RO filtration"],
+      cities: ["Chandler","Gilbert","Glendale","Mesa","Peoria","Phoenix","Scottsdale","Surprise","Tempe"],
+      tier: "standard",
+      specialty: null,
+      credential: null,
+      yearsAZ: null,
+      incomplete: false,
+      TODO: null
+    },
+    {
+      name: "Dana Water Systems",
+      url: "https://www.danawater.com/",
+      phone: "480-396-4778",
+      categories: ["RO filtration"],
+      cities: ["Gilbert","Mesa"],
+      tier: "standard",
+      specialty: null,
+      credential: null,
+      yearsAZ: null,
+      incomplete: false,
+      TODO: null
+    },
+    {
+      name: "ClearWater Systems — Prescott Valley",
+      url: "https://www.clearwatersystems.com/prescott-valley-az-clearwater-systems/",
+      phone: "888-928-3710",
+      categories: ["well water treatment"],
+      cities: ["Prescott","Sedona"],
+      tier: "standard",
+      specialty: null,
+      credential: null,
+      yearsAZ: null,
+      incomplete: false,
+      TODO: null
+    },
+    {
+      name: "Complete Water Systems (A2Z)",
+      url: "https://www.a2zwatersystems.com/",
+      phone: "602-396-5566",
+      categories: ["RO filtration"],
+      cities: ["Avondale","Buckeye","Chandler","Flagstaff","Gilbert","Glendale","Goodyear","Maricopa","Mesa","Phoenix","Scottsdale","Tempe","Tucson"],
+      tier: "standard",
+      specialty: null,
+      credential: null,
+      yearsAZ: null,
+      incomplete: false,
+      TODO: null
+    },
+    {
+      name: "Advantage Pure Flo",
+      url: "https://advantagepureflo.com/",
+      phone: "(480) 396-0486",
+      categories: ["salt-based softener"],
+      cities: ["Maricopa","Mesa","Phoenix"],
+      tier: "standard",
+      specialty: null,
+      credential: null,
+      yearsAZ: null,
+      incomplete: false,
+      TODO: null
+    },
+    {
+      name: "Hybrid Water",
+      url: "https://hybridwater.com/",
+      phone: "(623)-400-7582",
+      categories: ["salt-based softener"],
+      cities: ["Flagstaff","Glendale","Mesa","Phoenix","Queen Creek"],
+      tier: "standard",
+      specialty: null,
+      credential: null,
+      yearsAZ: null,
+      incomplete: false,
+      TODO: null
+    },
+    {
+      name: "Culligan Phoenix",
+      url: "https://www.culligan.com/locations/az/phoenix/water-filtration",
+      phone: "877-431-9752",
+      categories: ["RO filtration"],
+      cities: ["Maricopa","Phoenix"],
+      tier: "standard",
+      specialty: null,
+      credential: null,
+      yearsAZ: null,
+      incomplete: false,
+      TODO: null
+    },
+    {
+      name: "UA Cooperative Extension — Wells & Septic",
+      url: "https://extension.arizona.edu/topics/wells-septic-systems",
+      phone: "480-963-2495",
+      categories: ["well water treatment"],
+      cities: ["Chandler","Tucson"],
+      tier: "standard",
+      specialty: null,
+      credential: null,
+      yearsAZ: null,
+      incomplete: false,
+      TODO: null
+    },
+    // ── HYPERION ELITE SYSTEMS ───────────────────────────────────────────────
+    // Scraped 2026-04-22. Source: hesystems.com + SearxNG.
+    // TODO: James to review and confirm before this card goes live:
+    //   - Phone preference: toll-free (877) 820-1971 vs local (951)-674-2220
+    //   - Cities: 7 confirmed on service-areas page; broader metro mentioned in meta
+    //   - ROC 327032 confirmed via site footer
+    //   - Not BBB accredited; 86 Yelp reviews (positive sentiment)
+    {
+      name: "Hyperion Elite Systems",
+      url: "https://hesystems.com/",
+      phone: "(877) 820-1971",
+      categories: ["RO filtration", "salt-based softener", "salt-free conditioner"],
+      cities: ["Phoenix","Mesa","Gilbert","Glendale","Scottsdale","Chandler","Tempe"],
+      tier: "standard",
+      specialty: "5-stage RO with FILMTEC membranes; salt-based refiner uses 50% less salt than comparable systems.",
+      credential: "ROC 327032",
+      yearsAZ: null,
+      incomplete: false,
+      TODO: "PENDING JAMES REVIEW — scraped 2026-04-22. Confirm phone, cities, and card approval before deploy."
+    }
+  ];
+
+  // ── RENDER ────────────────────────────────────────────────────────────────
+  const LABEL_MAP = {
+    "RO filtration": "Reverse Osmosis",
+    "salt-based softener": "Water Softener",
+    "salt-free conditioner": "Salt-Free Conditioner",
+    "well water treatment": "Well Water Treatment"
+  };
+
+  const grid = document.getElementById('vendorGrid');
+  const featuredSlot = document.querySelector('.featured-slot-placeholder');
+  const noResults = document.getElementById('noResults');
+  const catFilter = document.getElementById('catFilter');
+  const cityFilter = document.getElementById('cityFilter');
+
+  function buildCard(v) {
+    const cat = v.categories[0] || "";
+    const label = LABEL_MAP[cat] || cat;
+    const cityText = v.cities.length ? "📍 " + v.cities.join(", ") : null;
+
+    let html = `<div class="vendor-card" data-cats='${JSON.stringify(v.categories)}' data-cities='${JSON.stringify(v.cities)}'>`;
+    html += `<div class="vendor-cat-tag">${label}</div>`;
+    html += `<h3><a href="${v.url}" target="_blank" rel="noopener">${v.name}</a></h3>`;
+    if (cityText) html += `<p class="vendor-area">${cityText}</p>`;
+    if (v.specialty) html += `<p class="vendor-specialty">${v.specialty}</p>`;
+    if (v.credential) html += `<p class="vendor-credential">✓ ${v.credential}</p>`;
+    if (v.incomplete) {
+      html += `<p class="vendor-incomplete">Contact information pending — check website for current details.</p>`;
+    } else if (v.phone) {
+      html += `<a href="tel:${v.phone}" class="vendor-phone">${v.phone}</a>`;
+    }
+    html += `</div>`;
+    return html;
+  }
+
+  function buildFeaturedCard(v) {
+    const cat = v.categories[0] || "";
+    const label = LABEL_MAP[cat] || cat;
+    return `
+      <div class="featured-card">
+        <div class="featured-badge">⭐ Preferred Partner</div>
+        <div>
+          <div class="fc-tag">${label}</div>
+          <div class="fc-name"><a href="${v.url}" target="_blank" rel="noopener">${v.name}</a></div>
+          ${v.specialty ? `<div class="fc-specialty">${v.specialty}</div>` : ''}
+          ${v.cities.length ? `<div class="fc-meta">📍 ${v.cities.join(", ")}</div>` : ''}
+          ${v.credential ? `<div class="fc-meta">✓ ${v.credential}</div>` : ''}
+          ${v.phone ? `<a href="tel:${v.phone}" class="fc-phone">${v.phone}</a>` : ''}
+        </div>
+      </div>`;
+  }
+
+  // Separate preferred from standard
+  const preferred = VENDORS.filter(v => v.tier === "preferred");
+  const standard = VENDORS.filter(v => v.tier !== "preferred");
+
+  // Render featured slot
+  if (preferred.length > 0) {
+    featuredSlot.outerHTML = buildFeaturedCard(preferred[0]);
+  }
+
+  // Render standard cards
+  standard.forEach(v => { grid.innerHTML += buildCard(v); });
+
+  // ── FILTER LOGIC ──────────────────────────────────────────────────────────
+  function applyFilters() {
+    const cat = catFilter.value;
+    const city = cityFilter.value;
+    let visible = 0;
+    grid.querySelectorAll('.vendor-card').forEach(card => {
+      const cats = JSON.parse(card.dataset.cats || '[]');
+      const cities = JSON.parse(card.dataset.cities || '[]');
+      const matchCat = !cat || cats.includes(cat);
+      const matchCity = !city || cities.includes(city);
+      const show = matchCat && matchCity;
+      card.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    noResults.style.display = visible === 0 ? 'block' : 'none';
+  }
+  catFilter.addEventListener('change', applyFilters);
+  cityFilter.addEventListener('change', applyFilters);
+
+  // ── LEAD FORM ─────────────────────────────────────────────────────────────
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxhkJDOV6CB7Baap4Gc7PlqTFEneAQz_XtGDoZ1k7YHC3C2H4uAEV2f009UTB7PiBvy/exec';
+  const form = document.getElementById('leadForm');
+  const btn = document.getElementById('submitBtn');
+  const msg = document.getElementById('formMsg');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    btn.disabled = true;
+    btn.textContent = 'Submitting…';
+    msg.textContent = '';
+    msg.className = 'form-msg';
+
+    const data = {
+      fname: form.fname.value.trim(),
+      lname: form.lname.value.trim(),
+      email: form.email.value.trim(),
+      phone: form.phone.value.trim(),
+      zip: form.zip.value.trim(),
+      issue: form.issue.value,
+      message: form.message.value.trim(),
+      submitted_at: new Date().toISOString(),
+    };
+
+    try {
+      await fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data),
+      });
+      msg.textContent = '✅ Thanks — we\'ll be in touch within 2 hours during business hours to schedule your water test. Your $25 gift card is yours when we complete the water test at your home (takes about 30-40 minutes depending on questions).';
+      msg.className = 'form-msg success';
+      form.reset();
+    } catch(err) {
+      msg.textContent = '⚠️ Something went wrong. Please try again or call us directly.';
+      msg.className = 'form-msg error';
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Get My Free Match →';
+    }
+  });
+</script>
+</body>
+</html>
